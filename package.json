@@ -2,18 +2,33 @@
   "name": "node-miner",
   "version": "1.0.0",
   "description": "Mines whatever endpoint I wish to",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarkKewley/node-miner.git"
+    "url": "git@github.com/MarkKewley/node-miner.git"
   },
   "author": "Mark Kewley",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MarkKewley/node-miner/issues"
   },
-  "homepage": "https://github.com/MarkKewley/node-miner#readme"
+  "homepage": "https://github.com/MarkKewley/node-miner#readme",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "express": "~4.13.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "babel-register": "^6.11.6",
+    "mocha": "^3.0.1",
+    "nodemon": "^1.10.0"
+  }
 }
